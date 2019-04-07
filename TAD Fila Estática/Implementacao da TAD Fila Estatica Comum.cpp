@@ -1,24 +1,24 @@
-/*	Algoritmo para a implementaÁ„o da TAD Fila Est·tica Comum que possui algumas regras a seguir:
+/*	Algoritmo para a implementa√ß√£o da TAD Fila Est√°tica Comum que possui algumas regras a seguir:
 
-	a) A Fila Est·tica segue o esquema FIFO (First In First Out [O Primeiro que entra È o Primeiro que sai]),
-	   sendo assim, a remoÁ„o ocorrer· a partir do primeiro valor que for acrescentado (Frente) e a inserÁ„o
-	   do valor ocorrer· na ˙ltima posiÁ„o da Fila (Tr·s).
+	a) A Fila Est√°tica segue o esquema FIFO (First In First Out [O Primeiro que entra √© o Primeiro que sai]),
+	   sendo assim, a remo√ß√£o ocorrer√° a partir do primeiro valor que for acrescentado (Frente) e a inser√ß√£o
+	   do valor ocorrer√° na √∫ltima posi√ß√£o da Fila (Tr√°s).
 	   
-	b) Ser„o utilizadas 2 vari·veis de controle: FRENTE e TR¡S onde:
+	b) Ser√£o utilizadas 2 vari√°veis de controle: FRENTE e TR√ÅS onde:
 	
-		-> FRENTE ser· incrementado todas as vezes em que ALGU…M FOR ATENDIDO, ou seja, quando um item for retirado
+		-> FRENTE ser√° incrementado todas as vezes em que ALGU√âM FOR ATENDIDO, ou seja, quando um item for retirado
 	       da Fila (Desenfileirar).
 	
-		-> TR¡S ser· incrementado todas as vezes em que ALGU…M ENTRAR, ou seja, quando um item for inserido na Fila
+		-> TR√ÅS ser√° incrementado todas as vezes em que ALGU√âM ENTRAR, ou seja, quando um item for inserido na Fila
 		   (Enfileirar).
 	 
-	c) A Fila Est·tica tambÈm possui reset de vari·veis como a Lista e Pilha ao inicializar. Na Fila:
+	c) A Fila Est√°tica tamb√©m possui reset de vari√°veis como a Lista e Pilha ao inicializar. Na Fila:
 	
-		-> A vari·vel de FRENTE ir· comeÁar com o valor 0.
-		-> A vari·vel de TR¡S ir· comeÁar com o valor -1.
+		-> A vari√°vel de FRENTE ir√° come√ßar com o valor 0.
+		-> A vari√°vel de TR√ÅS ir√° come√ßar com o valor -1.
 	
-	d) FunÁıes booleanas e Procedimentos geralmente tambÈm s„o utilizados nessa TAD. Outra coisa que tambÈm ser· usada
-	   ser· o Conceito de ReferÍncia (&) para forma de alteraÁ„o da Fila diretamente na MemÛria, caso seja necess·rio.
+	d) Fun√ß√µes booleanas e Procedimentos geralmente tamb√©m s√£o utilizados nessa TAD. Outra coisa que tamb√©m ser√° usada
+	   ser√° o Conceito de Refer√™ncia (&) para forma de altera√ß√£o da Fila diretamente na Mem√≥ria, caso seja necess√°rio.
 */
 #include <stdio.h>
 #include <conio.h>
@@ -63,7 +63,7 @@ void pesquisaFila (struct FilaComum F, int val)
 	
 	if (vaziaFila (F))
 	{
-		printf ("\n\nA Fila Comum est· VAZIA! ImpossÌvel de realizar a pesquisa de valores!");
+		printf ("\n\nA Fila Comum est√° VAZIA! Imposs√≠vel de realizar a pesquisa de valores!");
 	}
 	else
 	{
@@ -73,14 +73,14 @@ void pesquisaFila (struct FilaComum F, int val)
 		{
 			if (F.elementos[i] == val)
 			{
-				printf ("O elemento informado %d foi encontrado na posiÁ„o %d da Fila Comum! \n", val, i);
+				printf ("O elemento informado %d foi encontrado na posi√ß√£o %d da Fila Comum! \n", val, i);
 				item = true;
 			}
 		}
 		
 		if (!item)
 		{
-			printf ("N√O foram encontrados elementos na Fila Comum com o valor %d informado!", val);
+			printf ("N√ÉO foram encontrados elementos na Fila Comum com o valor %d informado!", val);
 		}
 	}
 }
@@ -89,7 +89,7 @@ void desenfileirar (struct FilaComum &F)
 {
 	if (vaziaFila (F))
 	{
-		printf ("\n\nA Fila Comum est· VAZIA! ImpossÌvel remover itens da Fila!");
+		printf ("\n\nA Fila Comum est√° VAZIA! Imposs√≠vel remover itens da Fila!");
 	}
 	else
 	{
@@ -102,7 +102,7 @@ void enfileirar (struct FilaComum &F, int val)
 {
 	if (cheiaFila (F))
 	{
-		printf ("\n\nA Fila Comum est· CHEIA! ImpossÌvel inserir mais itens na Fila!");
+		printf ("\n\nA Fila Comum est√° CHEIA! Imposs√≠vel inserir mais itens na Fila!");
 	}
 	else
 	{
@@ -118,17 +118,17 @@ void exibirFila (struct FilaComum F)
 	
 	if (vaziaFila (F))
 	{
-		printf ("\n\nA Fila Comum est· VAZIA! ImpossÌvel exibir seu conte˙do!");
+		printf ("\n\nA Fila Comum est√° VAZIA! Imposs√≠vel exibir seu conte√∫do!");
 	}
 	else
 	{
-		printf ("\n\nExibindo o conte˙do da Fila Comum... \n\n");
+		printf ("\n\nExibindo o conte√∫do da Fila Comum... \n\n");
 		for (i = F.frente; i <= F.tras; i++)
 		{
 			printf ("Fila Comum [%d] = %d \n", i, F.elementos[i]);
 		}		
 		printf ("\nFRENTE: %d", F.frente);
-		printf ("\nTR¡S: %d", F.tras);
+		printf ("\nTR√ÅS: %d", F.tras);
 	}
 }
 
@@ -152,24 +152,24 @@ int main ()
 	{
 		system ("cls");
 		printf ("\t\t----------------------------------------------------\n");
-		printf ("\t\t|          Menu de operaÁıes da Fila Comum         |\n");
+		printf ("\t\t|          Menu de opera√ß√µes da Fila Comum         |\n");
 		printf ("\t\t----------------------------------------------------\n");
-		printf ("\t\t| OpÁ„o |         AÁ„o correspondente              |\n");
+		printf ("\t\t| Op√ß√£o |         A√ß√£o correspondente              |\n");
 		printf ("\t\t----------------------------------------------------\n");
 		printf ("\t\t|   1   |      Enfileirar um valor na Fila Comum   |\n");
 		printf ("\t\t|   2   |    Desenfileirar um valor na Fila Comum  |\n");
 		printf ("\t\t|   3   |       Pesquisar itens na Fila Comum      |\n");
 		printf ("\t\t|   4   |        Exibir dados da Fila Comum        |\n");
-		printf ("\t\t|   5   | Restaurar a Fila aos padrıes de f·brica  |\n");
+		printf ("\t\t|   5   | Restaurar a Fila aos padr√µes de f√°brica  |\n");
 		printf ("\t\t----------------------------------------------------\n");
 		
-		printf ("\n\nEscolha a aÁ„o a ser executada na Fila com base nas informaÁıes acima (ou digite 0 para SAIR!): ");
+		printf ("\n\nEscolha a a√ß√£o a ser executada na Fila com base nas informa√ß√µes acima (ou digite 0 para SAIR!): ");
 		scanf ("%d", &op);
 		
 		switch (op)
 		{
 			case 0:
-				printf ("\n\nO programa est· sendo encerrado...");
+				printf ("\n\nO programa est√° sendo encerrado...");
 				break;
 			case 1:
 				printf ("\n\nInforme um valor a ser enfileirado na Fila Comum: ");
@@ -192,7 +192,7 @@ int main ()
 				inicializaFila (F);
 				break;
 			default:
-				printf ("\n\nOpÁ„o informada È INV¡LIDA! Tente novamente!");
+				printf ("\n\nOp√ß√£o informada √© INV√ÅLIDA! Tente novamente!");
 				break;
 		}
 		getch ();
