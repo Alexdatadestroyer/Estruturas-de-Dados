@@ -1,14 +1,14 @@
-/*	Algoritmo para implementaÁ„o da TAD Fila Din‚mica por meio de utilizaÁ„o de Ponteiros.
+/*	Algoritmo para implementa√ß√£o da TAD Fila Din√¢mica por meio de utiliza√ß√£o de Ponteiros.
 
 	Autor: Alexandre Gadelha da Silva Carvalho.
 
-	O algoritmo ir· incorporar as funÁıes e mÈtodos configurados na biblioteca [TADFilaDinamica.h].
+	O algoritmo ir√° incorporar as fun√ß√µes e m√©todos configurados na biblioteca [TADFilaDinamica.h].
 	
-	OBS 1: A TAD Fila Din‚mica respeita o lema FIFO (First In First Out) onde o Primeiro a Entrar È o
+	OBS 1: A TAD Fila Din√¢mica respeita o lema FIFO (First In First Out) onde o Primeiro a Entrar √© o
 		   Primeiro a Sair!
 	
-	OBS 2: No caso de uma Fila Din‚mica, n„o teremos a diferenciaÁ„o entre Fila Circular e Fila Comum, pois
-		   isso sÛ È aplicado no caso de Fila Est·tica.
+	OBS 2: No caso de uma Fila Din√¢mica, n√£o teremos a diferencia√ß√£o entre Fila Circular e Fila Comum, pois
+		   isso s√≥ √© aplicado no caso de Fila Est√°tica.
 */
 #include <stdio.h>
 #include <conio.h>
@@ -30,24 +30,24 @@ int main ()
 	{
 		system ("cls");
 		printf ("\t\t\t---------------------------------------------------\n");
-		printf ("\t\t\t|      Menu de operaÁıes da TAD Fila Din‚mica     |\n");
+		printf ("\t\t\t|      Menu de opera√ß√µes da TAD Fila Din√¢mica     |\n");
 		printf ("\t\t\t---------------------------------------------------\n");
-		printf ("\t\t\t| OpÁ„o |         AÁ„o correspondente             |\n");
+		printf ("\t\t\t| Op√ß√£o |         A√ß√£o correspondente             |\n");
 		printf ("\t\t\t---------------------------------------------------\n");
 		printf ("\t\t\t|   1   |     Enfileirar um elemento na Fila      |\n");
 		printf ("\t\t\t|   2   |     Desenfileirar um elemento na Fila   |\n");
 		printf ("\t\t\t|   3   |      Pesquisar um Valor nesta Fila      |\n");
-		printf ("\t\t\t|   4   |      Exibir dados da Fila Din‚mica      |\n");
-		printf ("\t\t\t|   5   | Restaurar a Fila aos padrıes de f·brica |\n");
+		printf ("\t\t\t|   4   |      Exibir dados da Fila Din√¢mica      |\n");
+		printf ("\t\t\t|   5   | Restaurar a Fila aos padr√µes de f√°brica |\n");
 		printf ("\t\t\t---------------------------------------------------\n");
 		
-		printf ("\n\nEscolha uma operaÁ„o a ser realizada na Fila Din‚mica de acordo com o Menu acima (ou digite 0 para SAIR!): ");
+		printf ("\n\nEscolha uma opera√ß√£o a ser realizada na Fila Din√¢mica de acordo com o Menu acima (ou digite 0 para SAIR!): ");
 		scanf ("%d", &op);
 		
 		switch (op)
 		{
 			case 0:
-				printf ("\n\nO programa est· sendo ENCERRADO...");
+				printf ("\n\nO programa est√° sendo ENCERRADO...");
 				break;
 			case 1:
 				printf ("\n\nInforme o Valor que deseja Enfileirar na Fila: ");
@@ -66,11 +66,11 @@ int main ()
 				exibirConteudoFila ();
 				break;
 			case 5:
-				printf ("\n\nA TAD Fila Din‚mica foi RESETADA com sucesso!");
+				printf ("\n\nA TAD Fila Din√¢mica foi RESETADA com sucesso!");
 				inicializaFila (false);
 				break;
 			default:
-				printf ("\n\nA opÁ„o digitada È INV¡LIDA! Tente novamente!");
+				printf ("\n\nA op√ß√£o digitada √© INV√ÅLIDA! Tente novamente!");
 				break;
 		}
 		getch ();
