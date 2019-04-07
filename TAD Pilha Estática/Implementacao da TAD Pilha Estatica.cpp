@@ -1,21 +1,21 @@
-/*	Algoritmo para a criaÁ„o de uma Pilha Est·tica, uma Estrutura TAD (Tipo Abstrato de Dado) com algumas operaÁıes
-	possÌveis para execuÁ„o, devendo obedecer os seguintes itens:
+/*	Algoritmo para a cria√ß√£o de uma Pilha Est√°tica, uma Estrutura TAD (Tipo Abstrato de Dado) com algumas opera√ß√µes
+	poss√≠veis para execu√ß√£o, devendo obedecer os seguintes itens:
 	
-	a) A TAD Pilha funciona no esquema LIFO (Last In First Out [O ˙ltimo que entra È o primeiro que sai]),
-	   sendo assim, todo item removido dever· estar na ˙ltima posiÁ„o desta Pilha e todo item acrescentado ir·
-	   para a ˙ltima posiÁ„o desta Pilha. 
+	a) A TAD Pilha funciona no esquema LIFO (Last In First Out [O √∫ltimo que entra √© o primeiro que sai]),
+	   sendo assim, todo item removido dever√° estar na √∫ltima posi√ß√£o desta Pilha e todo item acrescentado ir√°
+	   para a √∫ltima posi√ß√£o desta Pilha. 
 	
-	b) Toda vez em que for inicializada, a vari·vel que representa o Topo da Pilha dever· ser resetada.
-	   Podendo isto tambÈm ocorrer caso o usu·rio solicite no Menu exibido na FunÁ„o Principal.
+	b) Toda vez em que for inicializada, a vari√°vel que representa o Topo da Pilha dever√° ser resetada.
+	   Podendo isto tamb√©m ocorrer caso o usu√°rio solicite no Menu exibido na Fun√ß√£o Principal.
 	   
 	   Na TAD Pilha, assume-se o Valor de Reset como -1.
 	  
 	c) Geralmente, um Menu costuma ser implementado nesses casos como forma de fazer a Pilha
-	   funcionar como se deve e uma constante como forma de definir o topo M·ximo da mesma.
+	   funcionar como se deve e uma constante como forma de definir o topo M√°ximo da mesma.
 	
-	d) FunÁıes booleanas e Procedimentos geralmente tambÈm s„o utilizados nessa TAD. Outra coisa
-	   que tambÈm ser· usada ser· o Conceito de ReferÍncia (&) para forma de alteraÁ„o da Pilha
-	   diretamente na MemÛria, caso seja necess·rio.
+	d) Fun√ß√µes booleanas e Procedimentos geralmente tamb√©m s√£o utilizados nessa TAD. Outra coisa
+	   que tamb√©m ser√° usada ser√° o Conceito de Refer√™ncia (&) para forma de altera√ß√£o da Pilha
+	   diretamente na Mem√≥ria, caso seja necess√°rio.
 */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@ struct Pilha
 };
 //------------------------------------------------------------- //
 
-//----------- FunÁ„o de verificaÁ„o de Pilha CHEIA ------------ //
+//----------- Fun√ß√£o de verifica√ß√£o de Pilha CHEIA ------------ //
 bool cheia_Pilha (struct Pilha P)
 {
 	if (P.topo == MAX-1)
@@ -42,7 +42,7 @@ bool cheia_Pilha (struct Pilha P)
 }
 //------------------------------------------------------------- //
 
-//----------- FunÁ„o de verificaÁ„o de Pilha VAZIA ------------ //
+//----------- Fun√ß√£o de verifica√ß√£o de Pilha VAZIA ------------ //
 bool vazia_Pilha (struct Pilha P)
 {
 	if (P.topo == -1)
@@ -52,12 +52,12 @@ bool vazia_Pilha (struct Pilha P)
 }
 //------------------------------------------------------------- //
 
-//----------- MÈtodo de inserir valor no FINAL ---------------- //
+//----------- M√©todo de inserir valor no FINAL ---------------- //
 void empilha (struct Pilha &P, int x)
 {
 	if (cheia_Pilha (P))
 	{
-		printf ("\n\nA Pilha est· cheia! ImpossÌvel inserir o valor!");
+		printf ("\n\nA Pilha est√° cheia! Imposs√≠vel inserir o valor!");
 	}	
 	else
 	{
@@ -68,29 +68,29 @@ void empilha (struct Pilha &P, int x)
 }
 //------------------------------------------------------------- //
 
-//----------- MÈtodo de remover valor no FINAL ---------------- //
+//----------- M√©todo de remover valor no FINAL ---------------- //
 void desempilha (struct Pilha &P)
 {
 	if (vazia_Pilha (P))
 	{
-		printf ("\n\nA Pilha est· vazia! ImpossÌvel remover o valor!");
+		printf ("\n\nA Pilha est√° vazia! Imposs√≠vel remover o valor!");
 	}
 	else
 	{
-		printf ("\n\nO ˙ltimo item que È o %d da Pilha foi removido com sucesso!", P.item[P.topo]);
+		printf ("\n\nO √∫ltimo item que √© o %d da Pilha foi removido com sucesso!", P.item[P.topo]);
 		P.topo--;
 	}	
 }
 //------------------------------------------------------------- //
 
-//------- MÈtodo de pesquisa valores no conte˙do da Pilha ----- //
+//------- M√©todo de pesquisa valores no conte√∫do da Pilha ----- //
 void pesquisa_Pilha (struct Pilha P, int x)
 {
 	int i, cont;
 	
 	if (vazia_Pilha (P))
 	{
-		printf ("\n\nA Pilha est· vazia! ImpossÌvel realizar a pesquisa de valores!");
+		printf ("\n\nA Pilha est√° vazia! Imposs√≠vel realizar a pesquisa de valores!");
 	}
 	else
 	{
@@ -99,27 +99,27 @@ void pesquisa_Pilha (struct Pilha P, int x)
 		{
 			if (P.item[i] == x)
 			{
-				printf ("O valor informado %d foi encontrado na posiÁ„o %d da Pilha! \n", x, i);
+				printf ("O valor informado %d foi encontrado na posi√ß√£o %d da Pilha! \n", x, i);
 				cont++;
 			}
 		}
 		
 		if (cont == 0)
 		{
-			printf ("N√O foram encontrados valores na Pilha iguais a %d", x);
+			printf ("N√ÉO foram encontrados valores na Pilha iguais a %d", x);
 		}
 	}
 }
 //------------------------------------------------------------- //
 
-//----------- MÈtodo de exibir o conte˙do da Pilha ------------ //
+//----------- M√©todo de exibir o conte√∫do da Pilha ------------ //
 void exibe_Pilha (struct Pilha P)
 {
 	int i;
 	
 	if (vazia_Pilha (P))
 	{
-		printf ("\n\nA Pilha est· vazia! ImpossÌvel exibir o conte˙do da Pilha!");
+		printf ("\n\nA Pilha est√° vazia! Imposs√≠vel exibir o conte√∫do da Pilha!");
 	}	
 	else
 	{
@@ -132,14 +132,14 @@ void exibe_Pilha (struct Pilha P)
 }
 //------------------------------------------------------------- //
 
-//----------- MÈtodo de inicializar o topo da Pilha -------- //
+//----------- M√©todo de inicializar o topo da Pilha -------- //
 void inicializa_Pilha (struct Pilha &P)
 {
 	P.topo = -1;
 }
 //------------------------------------------------------------- //
 
-//------------------- FUN«√O PRINCIPAL ------------------------ //
+//------------------- FUN√á√ÉO PRINCIPAL ------------------------ //
 int main ()
 {
 	struct Pilha P;
@@ -154,24 +154,24 @@ int main ()
 	{
 		system ("cls");
 		printf ("\t\t----------------------------------------------------\n");
-		printf ("\t\t|            Menu de operaÁıes da Pilha            |\n");
+		printf ("\t\t|            Menu de opera√ß√µes da Pilha            |\n");
 		printf ("\t\t----------------------------------------------------\n");
-		printf ("\t\t| OpÁ„o |         AÁ„o correspondente              |\n");
+		printf ("\t\t| Op√ß√£o |         A√ß√£o correspondente              |\n");
 		printf ("\t\t----------------------------------------------------\n");
 		printf ("\t\t|   1   |        Inserir valor na Pilha            |\n");
 		printf ("\t\t|   2   |       Remover um valor da Pilha          |\n");
 		printf ("\t\t|   3   |       Pesquisar um item da Pilha         |\n");
 		printf ("\t\t|   4   |   Exibir a Pilha inteira por completo    |\n");
-		printf ("\t\t|   5   | Restaurar a Pilha aos padrıes de f·brica |\n");
+		printf ("\t\t|   5   | Restaurar a Pilha aos padr√µes de f√°brica |\n");
 		printf ("\t\t----------------------------------------------------\n");
 		
-		printf ("\n\nEscolha a aÁ„o a ser executada na Pilha com base nas informaÁıes acima (ou digite 0 para SAIR!): ");
+		printf ("\n\nEscolha a a√ß√£o a ser executada na Pilha com base nas informa√ß√µes acima (ou digite 0 para SAIR!): ");
 		scanf ("%d", &op);
 		
 		switch (op)
 		{
 			case 0:
-				printf ("\n\nO programa est· sendo encerrado!");
+				printf ("\n\nO programa est√° sendo encerrado!");
 				break;
 				
 			case 1:
@@ -203,7 +203,7 @@ int main ()
 				break;
 			
 			default:
-				printf ("\n\nOpÁ„o inv·lida! Tente novamente!");
+				printf ("\n\nOp√ß√£o inv√°lida! Tente novamente!");
 				break;	
 		}
 		getch ();
