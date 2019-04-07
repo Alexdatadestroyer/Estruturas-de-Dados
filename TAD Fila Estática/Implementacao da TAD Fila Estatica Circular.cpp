@@ -1,28 +1,28 @@
-/*	Algoritmo para a implementação da TAD Fila Estática Circular que possui algumas regras a seguir:
+/*	Algoritmo para a implementaÃ§Ã£o da TAD Fila EstÃ¡tica Circular que possui algumas regras a seguir:
 
-	a) A Fila Estática segue o esquema FIFO (First In First Out [O Primeiro que entra é o Primeiro que sai]),
-	   sendo assim, a remoção ocorrerá a partir do primeiro valor que for acrescentado (Frente) e a inserção
-	   do valor ocorrerá na última posição da Fila (Trás).
+	a) A Fila EstÃ¡tica segue o esquema FIFO (First In First Out [O Primeiro que entra Ã© o Primeiro que sai]),
+	   sendo assim, a remoÃ§Ã£o ocorrerÃ¡ a partir do primeiro valor que for acrescentado (Frente) e a inserÃ§Ã£o
+	   do valor ocorrerÃ¡ na Ãºltima posiÃ§Ã£o da Fila (TrÃ¡s).
 	   
-	b) Serão utilizadas 3 variáveis de controle: FRENTE, TRÁS e TAMANHO onde:
+	b) SerÃ£o utilizadas 3 variÃ¡veis de controle: FRENTE, TRÃS e TAMANHO onde:
 	
-		-> FRENTE será incrementado todas as vezes em que ALGUÉM FOR ATENDIDO, ou seja, quando um item for retirado
+		-> FRENTE serÃ¡ incrementado todas as vezes em que ALGUÃ‰M FOR ATENDIDO, ou seja, quando um item for retirado
 	       da Fila (Desenfileirar).
 	
-		-> TRÁS será incrementado todas as vezes em que ALGUÉM ENTRAR, ou seja, quando um item for inserido na Fila
+		-> TRÃS serÃ¡ incrementado todas as vezes em que ALGUÃ‰M ENTRAR, ou seja, quando um item for inserido na Fila
 		   (Enfileirar).
 	
- 		-> TAMANHO será incrementada todas as vezes em que houver inserção de valor (Enfileirar) e será decrementada
-		   todas as vezes em que houver remoção de valor (Desenfileirar).
+ 		-> TAMANHO serÃ¡ incrementada todas as vezes em que houver inserÃ§Ã£o de valor (Enfileirar) e serÃ¡ decrementada
+		   todas as vezes em que houver remoÃ§Ã£o de valor (Desenfileirar).
 	 
-	c) A Fila Estática também possui reset de variáveis como a Lista e Pilha ao inicializar. Na Fila:
+	c) A Fila EstÃ¡tica tambÃ©m possui reset de variÃ¡veis como a Lista e Pilha ao inicializar. Na Fila:
 	
-		-> A variável de FRENTE irá começar com o valor 0.
-		-> A variável de TRÁS irá começar com o valor -1.
-		-> A variável de TAMANHO irá começar com o valor 0.
+		-> A variÃ¡vel de FRENTE irÃ¡ comeÃ§ar com o valor 0.
+		-> A variÃ¡vel de TRÃS irÃ¡ comeÃ§ar com o valor -1.
+		-> A variÃ¡vel de TAMANHO irÃ¡ comeÃ§ar com o valor 0.
 	
-	d) Funções booleanas e Procedimentos geralmente também são utilizados nessa TAD. Outra coisa que também será usada
-	   será o Conceito de Referência (&) para forma de alteração da Fila diretamente na Memória, caso seja necessário.
+	d) FunÃ§Ãµes booleanas e Procedimentos geralmente tambÃ©m sÃ£o utilizados nessa TAD. Outra coisa que tambÃ©m serÃ¡ usada
+	   serÃ¡ o Conceito de ReferÃªncia (&) para forma de alteraÃ§Ã£o da Fila diretamente na MemÃ³ria, caso seja necessÃ¡rio.
 */
 #include <stdio.h>
 #include <conio.h>
@@ -67,19 +67,19 @@ void pesquisaFila (struct FilaCircular F, int val)
 	
 	if (vaziaFila (F))
 	{
-		printf ("\n\nA Fila Circular está VAZIA! Impossível de realizar a pesquisa de valores!");
+		printf ("\n\nA Fila Circular estÃ¡ VAZIA! ImpossÃ­vel de realizar a pesquisa de valores!");
 	}
 	else
 	{
 		printf ("\n\n");
 		
-		if (F.tras < F.frente) 	   	// Apenas quando o TAMANHO chega ao MAX. TRÁS passa a ser MENOR do que FRENTE.
+		if (F.tras < F.frente) 	   	// Apenas quando o TAMANHO chega ao MAX. TRÃS passa a ser MENOR do que FRENTE.
 		{
 			for (i = 0; i <= F.tras; i++)
 			{
 				if (F.elementos[i] == val)
 				{
-					printf ("O elemento informado %d foi encontrado na posição %d da Fila Circular! \n", val, i);
+					printf ("O elemento informado %d foi encontrado na posiÃ§Ã£o %d da Fila Circular! \n", val, i);
 					item = true;
 				}
 			}
@@ -88,18 +88,18 @@ void pesquisaFila (struct FilaCircular F, int val)
 			{
 				if (F.elementos[i] == val)
 				{
-					printf ("O elemento informado %d foi encontrado na posição %d da Fila Circular! \n", val, i);
+					printf ("O elemento informado %d foi encontrado na posiÃ§Ã£o %d da Fila Circular! \n", val, i);
 					item = true;
 				}
 			}
 		}						
-		else				// Operacional apenas no comportamento de Fila Estática Comum (TRÁS maior que FRENTE).
+		else				// Operacional apenas no comportamento de Fila EstÃ¡tica Comum (TRÃS maior que FRENTE).
 		{
 			for (i = F.frente; i <= F.tras; i++)
 			{
 				if (F.elementos[i] == val)
 				{
-					printf ("O elemento informado %d foi encontrado na posição %d da Fila Circular! \n", val, i);
+					printf ("O elemento informado %d foi encontrado na posiÃ§Ã£o %d da Fila Circular! \n", val, i);
 					item = true;
 				}
 			}
@@ -107,7 +107,7 @@ void pesquisaFila (struct FilaCircular F, int val)
 		
 		if (!item)
 		{
-			printf ("NÃO foram encontrados elementos na Fila Circular com o valor %d informado!", val);
+			printf ("NÃƒO foram encontrados elementos na Fila Circular com o valor %d informado!", val);
 		}
 	}
 }
@@ -116,7 +116,7 @@ void desenfileirar (struct FilaCircular &F)
 {
 	if (vaziaFila (F))
 	{
-		printf ("\n\nA Fila Circular está VAZIA! Impossível remover itens da Fila!");
+		printf ("\n\nA Fila Circular estÃ¡ VAZIA! ImpossÃ­vel remover itens da Fila!");
 	}
 	else
 	{
@@ -137,7 +137,7 @@ void enfileirar (struct FilaCircular &F, int val)
 {
 	if (cheiaFila (F))
 	{
-		printf ("\n\nA Fila Circular está CHEIA! Impossível inserir mais itens na Fila!");
+		printf ("\n\nA Fila Circular estÃ¡ CHEIA! ImpossÃ­vel inserir mais itens na Fila!");
 	}
 	else
 	{
@@ -161,13 +161,13 @@ void exibirFila (struct FilaCircular F)
 	
 	if (vaziaFila (F))
 	{
-		printf ("\n\nA Fila Circular está VAZIA! Impossível exibir seu conteúdo!");
+		printf ("\n\nA Fila Circular estÃ¡ VAZIA! ImpossÃ­vel exibir seu conteÃºdo!");
 	}
 	else
 	{
-		printf ("\n\nExibindo o conteúdo da Fila Circular... \n\n");
+		printf ("\n\nExibindo o conteÃºdo da Fila Circular... \n\n");
 		
-		if (F.tras < F.frente)     	// Apenas quando o TAMANHO chega ao MAX. TRÁS passa a ser MENOR do que FRENTE.
+		if (F.tras < F.frente)     	// Apenas quando o TAMANHO chega ao MAX. TRÃS passa a ser MENOR do que FRENTE.
 		{
 			for (i = 0; i <= F.tras; i++)
 			{
@@ -179,7 +179,7 @@ void exibirFila (struct FilaCircular F)
 				printf ("Fila Circular [%d] = %d \n", i, F.elementos[i]);
 			}
 		}
-		else				// Operacional apenas no comportamento de Fila Estática Comum (TRÁS maior que FRENTE).
+		else				// Operacional apenas no comportamento de Fila EstÃ¡tica Comum (TRÃS maior que FRENTE).
 		{
 			for (i = F.frente; i <= F.tras; i++)
 			{
@@ -187,7 +187,7 @@ void exibirFila (struct FilaCircular F)
 			}
 		}
 		printf ("\nFRENTE: %d", F.frente);
-		printf ("\nTRÁS: %d", F.tras);
+		printf ("\nTRÃS: %d", F.tras);
 		printf ("\nTAMANHO: %d", F.tamanho);
 	}
 }
@@ -213,24 +213,24 @@ int main ()
 	{
 		system ("cls");
 		printf ("\t\t----------------------------------------------------\n");
-		printf ("\t\t|        Menu de operações da Fila Circular        |\n");
+		printf ("\t\t|        Menu de operaÃ§Ãµes da Fila Circular        |\n");
 		printf ("\t\t----------------------------------------------------\n");
-		printf ("\t\t| Opção |         Ação correspondente              |\n");
+		printf ("\t\t| OpÃ§Ã£o |         AÃ§Ã£o correspondente              |\n");
 		printf ("\t\t----------------------------------------------------\n");
 		printf ("\t\t|   1   |   Enfileirar um valor na Fila Circular   |\n");
 		printf ("\t\t|   2   | Desenfileirar um valor na Fila Circular  |\n");
 		printf ("\t\t|   3   |     Pesquisar itens na Fila Circular     |\n");
 		printf ("\t\t|   4   |       Exibir dados da Fila Circular      |\n");
-		printf ("\t\t|   5   | Restaurar a Fila aos padrões de fábrica  |\n");
+		printf ("\t\t|   5   | Restaurar a Fila aos padrÃµes de fÃ¡brica  |\n");
 		printf ("\t\t----------------------------------------------------\n");
 		
-		printf ("\n\nEscolha a ação a ser executada na Fila com base nas informações acima (ou digite 0 para SAIR!): ");
+		printf ("\n\nEscolha a aÃ§Ã£o a ser executada na Fila com base nas informaÃ§Ãµes acima (ou digite 0 para SAIR!): ");
 		scanf ("%d", &op);
 		
 		switch (op)
 		{
 			case 0:
-				printf ("\n\nO programa está sendo encerrado...");
+				printf ("\n\nO programa estÃ¡ sendo encerrado...");
 				break;
 			case 1:
 				printf ("\n\nInforme um valor a ser enfileirado na Fila Circular: ");
@@ -253,7 +253,7 @@ int main ()
 				inicializaFila (F);
 				break;
 			default:
-				printf ("\n\nOpção informada é INVÁLIDA! Tente novamente!");
+				printf ("\n\nOpÃ§Ã£o informada Ã© INVÃLIDA! Tente novamente!");
 				break;
 		}
 		getch ();
