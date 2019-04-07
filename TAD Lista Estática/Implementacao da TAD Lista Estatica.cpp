@@ -1,20 +1,20 @@
-/*	Algoritmo para a criação de uma Lista Estática, uma Estrutura TAD (Tipo Abstrato de Dado) com algumas operações
-	possíveis para execução, devendo obedecer os seguintes itens:
+/*	Algoritmo para a criaÃ§Ã£o de uma Lista EstÃ¡tica, uma Estrutura TAD (Tipo Abstrato de Dado) com algumas operaÃ§Ãµes
+	possÃ­veis para execuÃ§Ã£o, devendo obedecer os seguintes itens:
 	
 	a) Para todo item RETIRADO ou INSERIDO no meio, deve-se fazer os itens moverem para a ESQUERDA ou DIREITA
-	   como forma de NUNCA deixar espaço vazio na Lista.
+	   como forma de NUNCA deixar espaÃ§o vazio na Lista.
 	
-	b) Toda vez em que for inicializada, a variável que representa o Tamanho deverá ser resetada.
-	   Podendo isto também ocorrer caso o usuário solicite no Menu exibido na Função Principal.
+	b) Toda vez em que for inicializada, a variÃ¡vel que representa o Tamanho deverÃ¡ ser resetada.
+	   Podendo isto tambÃ©m ocorrer caso o usuÃ¡rio solicite no Menu exibido na FunÃ§Ã£o Principal.
 	   
 	   Na TAD Lista, assume-se o Valor de Reset como 0.
 	  
 	c) Geralmente, um Menu costuma ser implementado nesses casos como forma de fazer a Lista
-	   funcionar como se deve e uma constante como forma de definir o Tamanho Máximo da mesma.
+	   funcionar como se deve e uma constante como forma de definir o Tamanho MÃ¡ximo da mesma.
 	
-	d) Funções booleanas e Procedimentos geralmente também são utilizados nessa TAD. Outra coisa
-	   que também será usada será o Conceito de Referência (&) para forma de alteração da Lista
-	   diretamente na Memória, caso seja necessário. 
+	d) FunÃ§Ãµes booleanas e Procedimentos geralmente tambÃ©m sÃ£o utilizados nessa TAD. Outra coisa
+	   que tambÃ©m serÃ¡ usada serÃ¡ o Conceito de ReferÃªncia (&) para forma de alteraÃ§Ã£o da Lista
+	   diretamente na MemÃ³ria, caso seja necessÃ¡rio. 
 */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@ struct Lista
 };
 //------------------------------------------------------------- //
 
-//----------- Função de verificação de Lista CHEIA ------------ //
+//----------- FunÃ§Ã£o de verificaÃ§Ã£o de Lista CHEIA ------------ //
 bool cheia_lista (struct Lista L)
 {
 	if (L.tamanho == MAX)
@@ -41,7 +41,7 @@ bool cheia_lista (struct Lista L)
 }
 //------------------------------------------------------------- //
 
-//----------- Função de verificação de Lista VAZIA ------------ //
+//----------- FunÃ§Ã£o de verificaÃ§Ã£o de Lista VAZIA ------------ //
 bool vazia_lista (struct Lista L)
 {
 	if (L.tamanho == 0)
@@ -51,12 +51,12 @@ bool vazia_lista (struct Lista L)
 }
 //------------------------------------------------------------- //
 
-//----------- Método de inserir valor no FINAL ---------------- //
+//----------- MÃ©todo de inserir valor no FINAL ---------------- //
 void inserir_final (struct Lista &L, int x)
 {
 	if (cheia_lista (L))
 	{
-		printf ("\n\nA Lista está cheia! Impossível inserir o valor no final!");
+		printf ("\n\nA Lista estÃ¡ cheia! ImpossÃ­vel inserir o valor no final!");
 	}	
 	else
 	{
@@ -67,18 +67,18 @@ void inserir_final (struct Lista &L, int x)
 }
 //------------------------------------------------------------- //
 
-//-------- Método de inserir valor na posição informada ------- //
+//-------- MÃ©todo de inserir valor na posiÃ§Ã£o informada ------- //
 void inserir_posicao (struct Lista &L, int x, int p)
 {
 	int i;
 	
 	if (cheia_lista (L))
 	{
-		printf ("\n\nA Lista está cheia! Impossível inserir o valor da posição informada!");
+		printf ("\n\nA Lista estÃ¡ cheia! ImpossÃ­vel inserir o valor da posiÃ§Ã£o informada!");
 	}
 	else if ((p > L.tamanho) || (p < 0))
 	{
-		printf ("\n\nA posição informada é inválida! Impossível inserir o valor da posição informada!");
+		printf ("\n\nA posiÃ§Ã£o informada Ã© invÃ¡lida! ImpossÃ­vel inserir o valor da posiÃ§Ã£o informada!");
 	}
 	else
 	{
@@ -88,38 +88,38 @@ void inserir_posicao (struct Lista &L, int x, int p)
 		}
 		L.item[p] = x;
 		L.tamanho++;
-		printf ("\n\nO valor %d foi inserido na posição %d da Lista com sucesso!", x, p);
+		printf ("\n\nO valor %d foi inserido na posiÃ§Ã£o %d da Lista com sucesso!", x, p);
 	}
 }
 //------------------------------------------------------------- //
 
-//----------- Método de remover valor no FINAL ---------------- //
+//----------- MÃ©todo de remover valor no FINAL ---------------- //
 void remover_final (struct Lista &L)
 {
 	if (vazia_lista (L))
 	{
-		printf ("\n\nA Lista está vazia! Impossível remover o valor no final!");
+		printf ("\n\nA Lista estÃ¡ vazia! ImpossÃ­vel remover o valor no final!");
 	}
 	else
 	{
 		L.tamanho--;
-		printf ("\n\nO último item que é o %d da Lista foi removido com sucesso!", L.item[L.tamanho]);
+		printf ("\n\nO Ãºltimo item que Ã© o %d da Lista foi removido com sucesso!", L.item[L.tamanho]);
 	}	
 }
 //------------------------------------------------------------- //
 
-//-------- Método de remover valor na posição informada ------- //
+//-------- MÃ©todo de remover valor na posiÃ§Ã£o informada ------- //
 void remover_posicao (struct Lista &L, int p)
 {
 	int i;
 	
 	if (vazia_lista (L))
 	{
-		printf ("\n\nA Lista está vazia! Impossível remover o valor da posição informada!");
+		printf ("\n\nA Lista estÃ¡ vazia! ImpossÃ­vel remover o valor da posiÃ§Ã£o informada!");
 	}
 	else if ((p >= L.tamanho) || (p < 0))
 	{
-		printf ("\n\nA posição informada é inválida! Impossível remover o valor da posição informada!");
+		printf ("\n\nA posiÃ§Ã£o informada Ã© invÃ¡lida! ImpossÃ­vel remover o valor da posiÃ§Ã£o informada!");
 	}
 	else
 	{
@@ -133,14 +133,14 @@ void remover_posicao (struct Lista &L, int p)
 }
 //------------------------------------------------------------- //
 
-//----------- Método de exibir o conteúdo da Lista ------------ //
+//----------- MÃ©todo de exibir o conteÃºdo da Lista ------------ //
 void exibe_lista (struct Lista L)
 {
 	int i;
 	
 	if (vazia_lista (L))
 	{
-		printf ("\n\nA Lista está vazia! Impossível exibir o conteúdo da Lista!");
+		printf ("\n\nA Lista estÃ¡ vazia! ImpossÃ­vel exibir o conteÃºdo da Lista!");
 	}	
 	else
 	{
@@ -153,14 +153,14 @@ void exibe_lista (struct Lista L)
 }
 //------------------------------------------------------------- //
 
-//----------- Método de inicializar o tamanho da Lista -------- //
+//----------- MÃ©todo de inicializar o tamanho da Lista -------- //
 void inicializa_lista (struct Lista &L)
 {
 	L.tamanho = 0;
 }
 //------------------------------------------------------------- //
 
-//------------------- FUNÇÃO PRINCIPAL ------------------------ //
+//------------------- FUNÃ‡ÃƒO PRINCIPAL ------------------------ //
 int main ()
 {
 	struct Lista L;
@@ -175,25 +175,25 @@ int main ()
 	{
 		system ("cls");
 		printf ("\t\t----------------------------------------------------\n");
-		printf ("\t\t|            Menu de operações da Lista            |\n");
+		printf ("\t\t|            Menu de operaÃ§Ãµes da Lista            |\n");
 		printf ("\t\t----------------------------------------------------\n");
-		printf ("\t\t| Opção |         Ação correspondente              |\n");
+		printf ("\t\t| OpÃ§Ã£o |         AÃ§Ã£o correspondente              |\n");
 		printf ("\t\t----------------------------------------------------\n");
 		printf ("\t\t|   1   | Inserir valor no final da Lista          |\n");
-		printf ("\t\t|   2   | Inserir valor numa posição da Lista      |\n");
-		printf ("\t\t|   3   | Remover o último valor da Lista          |\n");
-		printf ("\t\t|   4   | Remover valor numa posição da Lista      |\n");
+		printf ("\t\t|   2   | Inserir valor numa posiÃ§Ã£o da Lista      |\n");
+		printf ("\t\t|   3   | Remover o Ãºltimo valor da Lista          |\n");
+		printf ("\t\t|   4   | Remover valor numa posiÃ§Ã£o da Lista      |\n");
 		printf ("\t\t|   5   | Exibir a Lista inteira por completo      |\n");
-		printf ("\t\t|   6   | Restaurar a Lista aos padrões de fábrica |\n");
+		printf ("\t\t|   6   | Restaurar a Lista aos padrÃµes de fÃ¡brica |\n");
 		printf ("\t\t----------------------------------------------------\n");
 		
-		printf ("\n\nEscolha a ação a ser executada na Lista com base nas informações acima (ou digite 0 para SAIR!): ");
+		printf ("\n\nEscolha a aÃ§Ã£o a ser executada na Lista com base nas informaÃ§Ãµes acima (ou digite 0 para SAIR!): ");
 		scanf ("%d", &op);
 		
 		switch (op)
 		{
 			case 0:
-				printf ("\n\nO programa está sendo encerrado!");
+				printf ("\n\nO programa estÃ¡ sendo encerrado!");
 				break;
 				
 			case 1:
@@ -206,7 +206,7 @@ int main ()
 			case 2:
 				printf ("\n\nInforme um valor a ser inserido na Lista: ");
 				scanf ("%d", &val);
-				printf ("\n\nInforme a posição da Lista pra inserir o valor informado: ");
+				printf ("\n\nInforme a posiÃ§Ã£o da Lista pra inserir o valor informado: ");
 				scanf ("%d", &ind);
 				
 				inserir_posicao (L, val, ind);
@@ -217,7 +217,7 @@ int main ()
 				break;
 			
 			case 4:
-				printf ("\n\nInforme a posição da Lista pra remover o valor residente: ");
+				printf ("\n\nInforme a posiÃ§Ã£o da Lista pra remover o valor residente: ");
 				scanf ("%d", &ind);
 				
 				remover_posicao (L, ind);
@@ -234,7 +234,7 @@ int main ()
 				break;
 			
 			default:
-				printf ("\n\nOpção inválida! Tente novamente!");
+				printf ("\n\nOpÃ§Ã£o invÃ¡lida! Tente novamente!");
 				break;	
 		}
 		getch ();
